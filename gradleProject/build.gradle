@@ -14,7 +14,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.terasoluna.gfw:terasoluna-gfw-jodatime:5.7.0.RELEASE'
-    implementation 'com.github.User:Repo:Tag'
+    //implementation 'com.github.User:Repo:Tag'
 }
 
 test {
