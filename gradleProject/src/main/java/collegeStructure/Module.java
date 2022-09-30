@@ -84,6 +84,16 @@ public class Module {
     }
 
     @Override
+    public String toString() {
+        return "Module{" +
+                "moduleName=" + moduleName +
+                "students=" + students +
+                '}';
+    }
+
+
+    /*
+    @Override
     public String toString(){
         String lecturerList = " ";
         String studentsList = " ";
@@ -102,4 +112,5 @@ public class Module {
         String details = moduleName + " Courses: " + coursesList + " Students: " + studentsList;
         return details;
     }
+    */
 }

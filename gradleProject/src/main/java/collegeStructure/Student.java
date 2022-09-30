@@ -2,6 +2,8 @@ package collegeStructure;
 
 import org.joda.time.*;
 
+import java.util.Arrays;
+
 public class Student {
     public static int iDCounter;
     private String name;
@@ -9,11 +11,13 @@ public class Student {
     private LocalDate dob;
     private String iD;
     private String username;
+    private Course course;
     private Module[] modules;
 
-    public Student(String name, LocalDate dob) {
+    public Student(String name, LocalDate dob, Course course) {
         this.name = name;
         this.dob = dob;
+        this.course = course;
         LocalDate currentDate = new LocalDate(); //when a DateTime object is created with no value, it takes the current date as a value
         age = currentDate.getYear() - dob.getYear();//current year - year of birth
         username = getUsername();
@@ -62,4 +66,12 @@ public class Student {
     }
 
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "username='" + username + '\'' +
+                ", course=" + course.getName() +
+                ", modules=" + Arrays.toString(modules) +
+                '}';
+    }
 }

@@ -36,4 +36,28 @@ public class Lecturer {
         return genID;
     }
 
+
+    public static void setiDCounter(int iDCounter) {
+        Lecturer.iDCounter = iDCounter;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public void setiD(String iD) {
+        this.iD = iD;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
