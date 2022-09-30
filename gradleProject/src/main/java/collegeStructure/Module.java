@@ -12,6 +12,7 @@ public class Module {
     private String moduleName;
 
     public Module(String moduleName, Course course){
+        this.moduleName = moduleName;
         students = new ArrayList<Student>();
         lecturers = new ArrayList<Lecturer>();
         courses = new ArrayList<Course>();
@@ -41,6 +42,14 @@ public class Module {
 
     public void removeLecturer(Lecturer lecturer){
         lecturers.remove(lecturer);
+    }
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
     }
 
     public ArrayList<Student> getStudents() {
@@ -83,12 +92,18 @@ public class Module {
         this.endDate = endDate;
     }
 
+    public String listStudents(){
+        String studentsList="";
+        for (int i = 0; i < students.size();i++){
+            Student currentStudent = students.get(i);
+            studentsList = studentsList + currentStudent.toString();
+        }
+        return "\n\n    " + moduleName + studentsList;
+    }
     @Override
     public String toString() {
-        return "Module{" +
-                "moduleName=" + moduleName +
-                "students=" + students +
-                '}';
+        return "\nmoduleName: " + moduleName +
+                "students: " + students;
     }
 
 

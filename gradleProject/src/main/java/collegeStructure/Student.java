@@ -1,8 +1,9 @@
 package collegeStructure;
 
 import org.joda.time.*;
+//import collegeStructure.Module;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Student {
     public static int iDCounter;
@@ -12,7 +13,7 @@ public class Student {
     private String iD;
     private String username;
     private Course course;
-    private Module[] modules;
+    private ArrayList<Module> modules;
 
     public Student(String name, LocalDate dob, Course course) {
         this.name = name;
@@ -22,14 +23,16 @@ public class Student {
         age = currentDate.getYear() - dob.getYear();//current year - year of birth
         username = getUsername();
         iD = getID();
-        System.out.println(iD);
+        modules = new ArrayList<Module>();
+        //System.out.println(iD);
+        //modules.add(new Module("eeeeeee",course));
     }
 
     public String getUsername() {
         String genUsername;
         genUsername = name.replaceAll("\\s", "");
         genUsername = genUsername + age;
-        System.out.println(genUsername);
+        //System.out.println(genUsername);
         return genUsername;
 
     }
@@ -39,6 +42,10 @@ public class Student {
         genID = "S" + iDCounter;
         iDCounter++;
         return genID;
+    }
+
+    public void addModule(Module module){
+        modules.add(module);
     }
 
     public String getName() {
@@ -57,21 +64,24 @@ public class Student {
         this.dob = dob;
     }
 
-    public Module[] getModules() {
+    public ArrayList<Module> getModules() {
         return modules;
     }
 
-    public void setModules(Module[] modules) {
+    public void setModules(ArrayList<Module> modules ) {
         this.modules = modules;
     }
 
 
     @Override
     public String toString() {
-        return "Student{" +
-                "username='" + username + '\'' +
-                ", course=" + course.getName() +
-                ", modules=" + Arrays.toString(modules) +
-                '}';
+        String modulesList="";
+        for (int i = 0; i < modules.size();i++){
+            Module currentModule = modules.get(i);
+            modulesList = modulesList + currentModule.getModuleName() + ", ";
+        }
+        return "\n      username: '" + username + '\'' +
+                "\n         course: " + course.getName() +
+                "\n         modules: " + modulesList;
     }
 }

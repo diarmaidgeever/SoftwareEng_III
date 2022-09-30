@@ -73,6 +73,17 @@ public class Course {
         this.endDate = endDate;
     }
 
+    public String ListModulesandStudents(){
+        String modulesString = "";
+        for (int i = 0; i < modules.size();i++){
+            Module currentModule = modules.get(i);
+            modulesString = modulesString + currentModule.listStudents();
+        }
+
+        return "________________________________________________________________________________________________\n" +
+                name +  modulesString;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
